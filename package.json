@@ -19,7 +19,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nestjsplus/dyn-schematics"
+    "url": "git+https://github.com/Comerick/Nestjs-template-schematics.git"
   },
   "contributors": [
     "John Biundo"
