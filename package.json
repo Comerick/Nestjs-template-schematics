@@ -1,5 +1,5 @@
 {
-  "name": "@erik/dyn-schematics",
+  "name": "@Comerick/Nestjs-template-schematics",
   "version": "1.0.12",
   "description": "NestJS Dynamic Module Schematics for @nestjs/cli",
   "author": "Comerick <comerick@gmail.com>",
@@ -22,7 +22,6 @@
     "url": "git+https://github.com/Comerick/Nestjs-template-schematics"
   },
   "contributors": [
-    "John Biundo"
   ],
   "bugs": {
     "url": "git+https://github.com/Comerick/Nestjs-template-schematics/issues"
