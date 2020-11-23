@@ -2,7 +2,7 @@
   "name": "@erik/dyn-schematics",
   "version": "1.0.12",
   "description": "NestJS Dynamic Module Schematics for @nestjs/cli",
-  "author": "Erik Gróf <erik.grof@attreacto.com>",
+  "author": "Comerick <comerick@gmail.com>",
   "license": "MIT",
   "main": "index.js",
   "files": [
@@ -25,9 +25,9 @@
     "John Biundo"
   ],
   "bugs": {
-    "url": "https://github.com/nestjsplus/dyn-schematics/issues"
+    "url": "git+https://github.com/Comerick/Nestjs-template-schematics/issues"
   },
-  "homepage": "https://github.com/nestjsplus/dyn-schematics/#README",
+  "homepage": "git+https://github.com/Comerick/Nestjs-template-schematics#README",
   "readmeFilename": "README.md",
   "dependencies": {
     "@angular-devkit/core": "8.3.4",
