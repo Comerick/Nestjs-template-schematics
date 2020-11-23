@@ -1,5 +1,5 @@
 {
-  "name": "@nestjsplus/dyn-schematics",
+  "name": "@erik/dyn-schematics",
   "version": "1.0.12",
   "description": "NestJS Dynamic Module Schematics for @nestjs/cli",
   "author": "Erik Gróf <erik.grof@attreacto.com>",

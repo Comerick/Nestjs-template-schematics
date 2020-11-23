@@ -374,10 +374,11 @@
 
 "@nestjsplus/dyn-schematics@https://github.com/Comerick/Nestjs-template-schematics.git":
   version "1.0.12"
-  resolved "https://github.com/Comerick/Nestjs-template-schematics.git#0be5583caa8756d5737564dd30e166ed58963093"
+  resolved "https://github.com/Comerick/Nestjs-template-schematics.git#f57842ba7d3e85ab35dedd254c0d20047272d83f"
   dependencies:
     "@angular-devkit/core" "8.3.4"
     "@angular-devkit/schematics" "8.3.4"
+    "@nestjsplus/dyn-schematics" "https://github.com/Comerick/Nestjs-template-schematics.git"
     ts-morph "^4.0.0"
     typescript "3.4.5"
 
