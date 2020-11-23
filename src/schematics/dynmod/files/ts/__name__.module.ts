@@ -10,6 +10,8 @@ import {
 } from './interfaces';
 import { create<%= classify(name) %>Providers } from './<%= lowerCase(name) %>.providers';
 
+
+//MY MODULE TEMPLATE COMERICK
 @Global()
 @Module({
   providers: [<%= classify(name) %>Service],

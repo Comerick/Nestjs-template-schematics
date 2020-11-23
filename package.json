@@ -1,5 +1,5 @@
 {
-  "name": "@Comerick/Nestjs-template-schematics",
+  "name": "@comerick/nestjs-template-schematics",
   "version": "1.0.12",
   "description": "NestJS Dynamic Module Schematics for @nestjs/cli",
   "author": "Comerick <comerick@gmail.com>",
@@ -19,19 +19,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Comerick/Nestjs-template-schematics"
+    "url": "git+https://github.com/Comerick/Nestjs-template-schematics.git"
   },
-  "contributors": [
-  ],
+  "contributors": [],
   "bugs": {
     "url": "git+https://github.com/Comerick/Nestjs-template-schematics/issues"
   },
   "homepage": "git+https://github.com/Comerick/Nestjs-template-schematics#README",
-  "readmeFilename": "README.md",
   "dependencies": {
     "@angular-devkit/core": "8.3.4",
     "@angular-devkit/schematics": "8.3.4",
-    "@nestjsplus/dyn-schematics": "https://github.com/Comerick/Nestjs-template-schematics.git",
+    "@comerick/nestjs-template-schematics": "^1.0.12",
     "ts-morph": "^4.0.0",
     "typescript": "3.4.5"
   },
@@ -44,5 +42,8 @@
     "ts-jest": "24.1.0",
     "tslint": "5.20.0"
   },
-  "schematics": "./collection.json"
+  "schematics": "./collection.json",
+  "directories": {
+    "lib": "lib"
+  }
 }
