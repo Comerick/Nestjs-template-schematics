@@ -2,7 +2,7 @@
   "name": "@nestjsplus/dyn-schematics",
   "version": "1.0.12",
   "description": "NestJS Dynamic Module Schematics for @nestjs/cli",
-  "author": "John Biundo <johnfbiundo@gmail.com>",
+  "author": "Erik Gróf <erik.grof@attreacto.com>",
   "license": "MIT",
   "main": "index.js",
   "files": [
@@ -32,6 +32,7 @@
   "dependencies": {
     "@angular-devkit/core": "8.3.4",
     "@angular-devkit/schematics": "8.3.4",
+    "@nestjsplus/dyn-schematics": "https://github.com/Comerick/Nestjs-template-schematics.git",
     "ts-morph": "^4.0.0",
     "typescript": "3.4.5"
   },
