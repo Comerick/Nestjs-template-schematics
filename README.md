@@ -24,18 +24,17 @@ See [below](#dynamic-package-generation) for a description of the use cases.
 
 ### Installation
 
-Install the package **globally** as shown below.  Due to the implementation of the NestJS CLI, the package **must** be global.
+Install the package as **dev** dependencies below.  Due to the implementation of the NestJS CLI, the package **can be** **global** or **dev**.
 
 ```bash
-npm install -g @nestjsplus/dyn-schematics
+npm install -D @comerick/nestjs-template-schematics"
 ```
 
 ### Dynamic Package Generation
 
-Currently, there are two use cases supported, each with a corresponding schematic:
+Currently, there are only one case supported, each with a corresponding schematic:
 
-1. Generating a complete, new standalone NestJS *package* containing a dynamic module. Such a package can easily be installed locally with npm, or packaged and distributed via the [npm registry](https://npmjs.com), or a private registry.  In other words, use this to build a re-usable library.
-2. Adding a generated dynamic module *to an existing NestJS project*. In this case, the module is created in its own folder, and is wired in to the existing project using appropriate module metadata, includes, etc.  This schematic works much like Nest's built-in `module` schematic, but creates a fully implemented *dynamic module*.
+1. Adding a generated dynamic module *to an existing NestJS project*. In this case, the module is created in its own folder, and is wired in to the existing project using appropriate module metadata, includes, etc.  This schematic works much like Nest's built-in `module` schematic, but creates a fully implemented *dynamic module*.
 
 ### Nest CLI
 
@@ -52,7 +51,7 @@ The following step will create a new folder using `<pkg-name>`, which will conta
 #### Use the `dynpkg` schematic
 
 ```bash
-nest g -c @nestjsplus/dyn-schematics dynpkg <pkg-name>
+nest g -c @comerick/nestjs-template-schematics dynmod <pkg-name>
 ```
 
 - `dynpkg` is the name of the schematic used to generate a new standalone package containing a dynamic module.

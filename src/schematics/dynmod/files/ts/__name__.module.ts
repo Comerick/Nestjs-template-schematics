@@ -1,8 +1,8 @@
-import { Module, DynamicModule, Provider, Global } from '@nestjs/common';
+import { Module} from '@nestjs/common';
 import { TypeOrmModule } from "@nestjs/typeorm";
 import { <%= classify(name) %>Service } from './<%= lowerCase(name) %>.service';
 import { <%= classify(name) %>Controller } from "./<%= lowerCase(name) %>.controller";
-import { <%= classify(name) %> } from '../../../database/entity';
+import { <%= classify(name) %> } from '../../../database/entity/generated/';
 
 @Module({
   imports: [TypeOrmModule.forFeature([<%= classify(name) %>])],
