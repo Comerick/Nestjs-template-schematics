@@ -28,6 +28,7 @@ import {
   upperCase,
   dashToUnderscore,
 } from '../../utils/string-utils';
+import {classify} from "@angular-devkit/core/src/utils/strings";
 
 export function main(options: DynModOptions): Rule {
   options = transform(options);
@@ -62,6 +63,12 @@ function generate(options: DynModOptions) {
         ...strings,
         ...options,
         lowerCase,
+        lowercased: (name: string) => {
+          const classifiedName = classify(name);
+          return (
+              classifiedName.charAt(0).toLowerCase() + classifiedName.slice(1)
+          );
+        },
         upperCase,
         dashToUnderscore,
       }),
