@@ -216,6 +216,17 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
+"@comerick/nestjs-template-schematics@1.0.13":
+  version "1.0.13"
+  resolved "https://registry.yarnpkg.com/@comerick/nestjs-template-schematics/-/nestjs-template-schematics-1.0.13.tgz#9811fc2096e3ce3018bfcf5d89c9a08f5dbe09ad"
+  integrity sha512-ZMaOXwxPXiQcsBW2YcnTNcbGtIEmJmqC/RtxUKk24P2HqszEoIP88ZwsYH0W3r1sAJR5nX4p9Etnyp53MwV6sA==
+  dependencies:
+    "@angular-devkit/core" "8.3.4"
+    "@angular-devkit/schematics" "8.3.4"
+    "@comerick/nestjs-template-schematics" "^1.0.12"
+    ts-morph "^4.0.0"
+    typescript "3.4.5"
+
 "@comerick/nestjs-template-schematics@^1.0.12":
   version "1.0.12"
   resolved "https://registry.yarnpkg.com/@comerick/nestjs-template-schematics/-/nestjs-template-schematics-1.0.12.tgz#af74c21d8b07d6bf70ca7f2bcbeed1b2815b4c96"

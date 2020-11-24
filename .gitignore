@@ -2,3 +2,4 @@ node_modules
 lib/
 src/lib/**/*.js
 src/lib/**/*.d.ts
+*.log
