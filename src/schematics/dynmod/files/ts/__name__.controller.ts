@@ -1,4 +1,4 @@
-import { Controller } from "@nestjs/common";
+import { Controller, UseGuards } from "@nestjs/common";
 import { ApiTags } from '@nestjs/swagger';
 import { Crud, CrudController } from "@nestjsx/crud";
 import { getMetadataArgsStorage } from 'typeorm';
