@@ -4,13 +4,14 @@ import { Crud, CrudController } from "@nestjsx/crud";
 import { getMetadataArgsStorage } from 'typeorm';
 
 import { <%= classify(name) %>Service } from "./<%= lowerCase(name) %>.service";
-import { <%= classify(name) %> } from '../../../database/entity/generated/';
+import { <%= classify(name) %> as Generated<%= classify(name) %> } from '../../../database/entity/generated/';
 import { RoleGuard } from '../../auth/guards/role.guard';
 import { Role } from '../../../common/role';
 
+//todo move this as a common function
 const joinProps = {};
 getMetadataArgsStorage().relations.forEach((relation)=>{
-  if(relation.target == <%= classify(name) %>){
+  if(relation.target == Generated<%= classify(name) %>){
     joinProps[relation.propertyName] = {eager: true};
   }
 });
@@ -18,7 +19,7 @@ getMetadataArgsStorage().relations.forEach((relation)=>{
 @ApiTags('<%= classify(name) %>')
 @Crud({
   model: {
-    type: <%= classify(name) %>,
+    type: Generated<%= classify(name) %>,
   },
   query: {
     join: joinProps
@@ -26,6 +27,6 @@ getMetadataArgsStorage().relations.forEach((relation)=>{
 })
 @UseGuards(RoleGuard([Role.ADMIN]))
 @Controller("<%= dasherize(name) %>")
-export class <%= classify(name) %>Controller implements CrudController<<%= classify(name) %> > {
+export class <%= classify(name) %>Controller implements CrudController<Generated<%= classify(name) %>> {
   constructor(public service: <%= classify(name) %>Service) {}
 }

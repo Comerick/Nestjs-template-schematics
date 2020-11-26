@@ -1,6 +1,6 @@
 {
   "name": "@comerick/nestjs-template-schematics",
-  "version": "2.0.7",
+  "version": "2.0.9",
   "description": "NestJS Dynamic Module Schematics for @nestjs/cli",
   "author": "Comerick <comerick@gmail.com>",
   "license": "MIT",
