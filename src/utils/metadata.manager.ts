@@ -23,21 +23,17 @@ export class MetadataManager {
   public insert(
     metadata: string,
     symbol: string,
-    staticOptions?: DeclarationOptions['staticOptions']
+    staticOptions?: DeclarationOptions['staticOptions'],
   ): string {
-    // console.log(`MANAGER >>>>>>> metadata: ${metadata}`);
-    // console.log(`MANAGER >>>>>>> symbol: ${symbol}`);
-    staticOptions = { name: 'register', value: {} };
-    // console.log(`MANAGER >>>>>>> staticOptions: ${staticOptions}`);
     const source: SourceFile = createSourceFile(
       'filename.ts',
       this.content,
-      ScriptTarget.ES2017
+      ScriptTarget.ES2017,
     );
     const decoratorNodes: Node[] = this.getDecoratorMetadata(source, '@Module');
     const node: Node = decoratorNodes[0];
     const matchingProperties: ObjectLiteralElement[] = (node as ObjectLiteralExpression).properties
-      .filter(prop => prop.kind === SyntaxKind.PropertyAssignment)
+      .filter((prop) => prop.kind === SyntaxKind.PropertyAssignment)
       .filter((prop: PropertyAssignment) => {
         const name = prop.name;
         switch (name.kind) {
@@ -61,7 +57,7 @@ export class MetadataManager {
         return this.insertMetadataToEmptyModuleDecorator(
           expr,
           metadata,
-          symbol
+          symbol,
         );
       } else {
         addBlankLinesIfDynamic();
@@ -69,7 +65,7 @@ export class MetadataManager {
           expr,
           source,
           metadata,
-          symbol
+          symbol,
         );
       }
     } else {
@@ -77,25 +73,26 @@ export class MetadataManager {
         source,
         matchingProperties,
         symbol,
-        staticOptions
+        staticOptions,
       );
     }
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   private getDecoratorMetadata(source: SourceFile, identifier: string): Node[] {
     return this.getSourceNodes(source)
       .filter(
-        node =>
+        (node) =>
           node.kind === SyntaxKind.Decorator &&
-          (node as Decorator).expression.kind === SyntaxKind.CallExpression
+          (node as Decorator).expression.kind === SyntaxKind.CallExpression,
       )
-      .map(node => (node as Decorator).expression as CallExpression)
+      .map((node) => (node as Decorator).expression as CallExpression)
       .filter(
-        expr =>
+        (expr) =>
           expr.arguments[0] &&
-          expr.arguments[0].kind === SyntaxKind.ObjectLiteralExpression
+          expr.arguments[0].kind === SyntaxKind.ObjectLiteralExpression,
       )
-      .map(expr => expr.arguments[0] as ObjectLiteralExpression);
+      .map((expr) => expr.arguments[0] as ObjectLiteralExpression);
   }
 
   private getSourceNodes(sourceFile: SourceFile): Node[] {
@@ -116,7 +113,7 @@ export class MetadataManager {
   private insertMetadataToEmptyModuleDecorator(
     expr: ObjectLiteralExpression,
     metadata: string,
-    symbol: string
+    symbol: string,
   ): string {
     const position = expr.getEnd() - 1;
     const toInsert = `  ${metadata}: [${symbol}]`;
@@ -133,7 +130,7 @@ export class MetadataManager {
     expr: ObjectLiteralExpression,
     source: SourceFile,
     metadata: string,
-    symbol: string
+    symbol: string,
   ): string {
     const node = expr.properties[expr.properties.length - 1];
     const position = node.getEnd();
@@ -158,11 +155,15 @@ export class MetadataManager {
     source: SourceFile,
     matchingProperties: ObjectLiteralElement[],
     symbol: string,
-    staticOptions?: DeclarationOptions['staticOptions']
+    staticOptions?: DeclarationOptions['staticOptions'],
   ): string {
     const assignment = matchingProperties[0] as PropertyAssignment;
     let node: Node | NodeArray<Expression>;
     const arrLiteral = assignment.initializer as ArrayLiteralExpression;
+    if (!arrLiteral.elements) {
+      // "imports" is not an array but rather function/constant
+      return this.content;
+    }
     if (arrLiteral.elements.length === 0) {
       node = arrLiteral;
     } else {
@@ -170,8 +171,8 @@ export class MetadataManager {
     }
     if (Array.isArray(node)) {
       const nodeArray = (node as {}) as Node[];
-      const symbolsArray = nodeArray.map(childNode =>
-        childNode.getText(source)
+      const symbolsArray = nodeArray.map((childNode) =>
+        childNode.getText(source),
       );
       if (symbolsArray.includes(symbol)) {
         return this.content;
@@ -203,7 +204,7 @@ export class MetadataManager {
 
   private mergeSymbolAndExpr(
     symbol: string,
-    staticOptions?: DeclarationOptions['staticOptions']
+    staticOptions?: DeclarationOptions['staticOptions'],
   ): string {
     if (!staticOptions) {
       return symbol;

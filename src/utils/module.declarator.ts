@@ -19,22 +19,11 @@ export interface DeclarationOptions {
 export class ModuleDeclarator {
   constructor(
     private imports: ModuleImportDeclarator = new ModuleImportDeclarator(),
-    private metadata: ModuleMetadataDeclarator = new ModuleMetadataDeclarator()
+    private metadata: ModuleMetadataDeclarator = new ModuleMetadataDeclarator(),
   ) {}
 
   public declare(content: string, options: DeclarationOptions): string {
     options = this.computeSymbol(options);
-    // console.log('>>>>>> ModuleDeclarator.declare -> options: ', options);
-    // console.log(
-    //   '>>>>>> IMPORTS ModuleDeclarator -> imports.declare: ',
-    //   this.imports.declare(content, options),
-    //   '\n'
-    // );
-    // console.log(
-    //   '>>>>>> METADATA ModuleDeclarator -> metadata.declare: ',
-    //   this.metadata.declare(content, options),
-    //   '\n'
-    // );
     content = this.imports.declare(content, options);
     content = this.metadata.declare(content, options);
     return content;
