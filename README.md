@@ -6,7 +6,7 @@
   </a>
 </div>
 
-<h3 align="center">NestJS CLI Schematics for Dynamic Module Generation</h3>
+<h3 align="center">NestJS Template CLI Schematics for Dynamic Module Generation</h3>
 
 <div align="center">
   <a href="https://nestjs.com" target="_blank">
@@ -34,7 +34,7 @@ npm install -D @comerick/nestjs-template-schematics"
 
 Currently, there are only one case supported, each with a corresponding schematic:
 
-1. Adding a generated dynamic module *to an existing NestJS project*. In this case, the module is created in its own folder, and is wired in to the existing project using appropriate module metadata, includes, etc.  This schematic works much like Nest's built-in `module` schematic, but creates a fully implemented *dynamic module*.
+1. Adding a generated dynamic module *to an existing NestJS project*. In this case, the module is created in its own folder, and is wired in to the existing project using appropriate module metadata, includes, etc.  This schematic works much like Nest's built-in `module` schematic, but creates a fully implemented *dynamic module* and this schematics is based on generated entities.
 
 ### Nest CLI
 
@@ -42,35 +42,9 @@ These schematics are built on top of the [Nest CLI](https://docs.nestjs.com/cli/
 
 > Note: since these schematics are built on top of the Nest CLI, all of the optional arguments (such as specifying an optional path in which to generate the code) and options (such as `--dry-run`, `--flat`) are available.  Currently, however, the schematics do not generate spec files.
 
-> Note: I'm working on schematics to add new components to an existing dynamic module, such as additional *options providers*. This should be coming soon.
-
 ### Use-case #1: Generating a standalone package
 
 The following step will create a new folder using `<pkg-name>`, which will contain the standalone package files and folders for your new dynamic module package.
-
-#### Use the `dynpkg` schematic
-
-```bash
-nest g -c @comerick/nestjs-template-schematics dynmod <pkg-name>
-```
-
-- `dynpkg` is the name of the schematic used to generate a new standalone package containing a dynamic module.
-- `<pkg-name>` is the name of the new package you're building.
-
-The schematic will prompt you asking whether to create a *test client*.  If you answer yes, it will add a small module, which you can later easily remove, to test out the newly generated schematic.  I recommend you choose `yes` when first testing out the schematic.
-
-Move to the sub-folder just created:
-
-```bash
-cd <pkg-name>
-```
-- where `pkg-name` is the name you supplied in the original `nest g` command above.
-
-Install the dependencies for the generated package:
-
-```bash
-npm install
-```
 
 #### Verify generated package
 
@@ -90,14 +64,10 @@ The `package.json` and `tsconfig.json` files are generated according to the proc
 
 See [the npm packaging](https://dev.to/nestjs/publishing-nestjs-packages-with-npm-21fm) article for more information.
 
-### Use-case #2: Adding a dynamic module to an existing project
-
-Make sure you're in the project root folder, just as you would be if running something like `nest g controller myController`.
-
 #### Use the `dnymod` schematic
 
 ```bash
-nest g -c @nestjsplus/dyn-schematics dynmod <module-name>
+nest g -c @comerick/nestjs-template-schematics dynmod <module-name>
 ```
 
 - `dynmod` is the name of the schematic used to generate a new dynamic module (which will be added to your existing project).
@@ -122,13 +92,10 @@ You can also refer to these articles:
 
 See [Changelog](CHANGELOG.md) for more information.
 
-### Contributing
-
-Contributions welcome! See [Contributing](CONTRIBUTING.md).
 
 ### Author
 
-**John Biundo (Y Prospect on [Discord](https://discord.gg/G7Qnnhy))**
+**Erik Gróf**
 
 ### License
 

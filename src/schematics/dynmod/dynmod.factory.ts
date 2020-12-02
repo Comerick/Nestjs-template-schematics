@@ -15,7 +15,7 @@ import {
 import {
   DeclarationOptions,
   ModuleDeclarator,
-} from '../../utils/module.declarator';
+} from '../../utils';
 
 import { ModuleFinder } from '../../utils/module.finder';
 import { Location, NameParser } from '../../utils/name.parser';
